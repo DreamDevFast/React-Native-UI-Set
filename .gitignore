@@ -1,0 +1,7 @@
+.DS_Store
+.expo/
+dist
+node_modules/
+npm-*.log
+yarn-*.log
+package-lock.json

@@ -1,0 +1,94 @@
+{
+  "name": "carbon-native",
+  "version": "1.3.2",
+  "description": "A set of UI components for building React Native apps.",
+  "private": true,
+  "author": "",
+  "contributors": [
+    {
+      "name": "Tyler Buchea",
+      "email": "tyler@buchea.com"
+    },
+    {
+      "name": "Josh Buchea",
+      "email": "josh@buchea.com"
+    }
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "package-json": "node ./scripts/package-json.js",
+    "copy-static-files": "node ./scripts/copy-static-files.js",
+    "build": "yarn clean && babel ./src --out-dir dist --copy-files && yarn package-json && yarn copy-static-files",
+    "build-watch": "yarn build && babel ./src --watch --out-dir ./dist --copy-files",
+    "precommit": "lint-staged",
+    "test": "jest",
+    "test-dist": "TEST_DIST=true yarn test",
+    "start-dist": "NODE_ENV=production && expo start",
+    "start": "expo start",
+    "eject": "expo eject",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "test-expo": "node ./node_modules/jest/bin/jest.js --watchAll"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist"
+    ]
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "prettier --write --single-quote --trailing-comma es5",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carbon-native/carbon-native"
+  },
+  "bugs": {
+    "url": "https://github.com/carbon-native/carbon-native/issues"
+  },
+  "keywords": [
+    "react-native",
+    "ui"
+  ],
+  "peerDepenecies": {
+    "react": ">=16.9.0",
+    "react-native": ">=0.61.4",
+    "prop-types": ">=15.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "await-to-js": "^2.1.1",
+    "babel-preset-expo": "8.3.0",
+    "fs-extra": "^8.1.0",
+    "husky": "^4.2.3",
+    "jest-expo": "^40.0.0",
+    "lint-staged": "^10.0.8",
+    "lodash": "^4.17.19",
+    "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "16.13.0",
+    "rimraf": "^3.0.2"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/slider": "3.0.3",
+    "@react-navigation/native": "^5.0.9",
+    "@react-navigation/stack": "^5.1.1",
+    "color": "^3.1.2",
+    "expo": "^40.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.0.tar.gz",
+    "react-native-gesture-handler": "~1.8.0",
+    "react-native-reanimated": "~1.13.0",
+    "react-native-safe-area-context": "3.1.9",
+    "react-native-screens": "~2.15.0",
+    "react-native-web": "~0.13.12"
+  }
+}
